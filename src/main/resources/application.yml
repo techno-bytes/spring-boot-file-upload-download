@@ -1,0 +1,40 @@
+
+server:
+  port: 9191
+  application:
+    name: spring-boot-file-upload-download
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 1MB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/testdb
+    driver-class: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      show-sql: true
+      ddl-auto: update
+
+logging:
+  level:
+    root: INFO
+  org:
+    hibernate:
+      SQL: trace
+      orm:
+        jdbc:
+          bind: true
